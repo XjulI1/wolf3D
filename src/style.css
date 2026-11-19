@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --color-void: #05080a;
+  --color-panel: #0b1210;
+  --color-panel-raised: #111a17;
+  --color-line: #1f2e29;
+  --color-neon: #39ff88;
+  --color-ink: #e2f5ea;
+  --color-muted: #86a396;
+  --color-danger: #ff4b3e;
+  --color-warning: #ffd23f;
+  --color-data: #19e3ff;
+
+  --shadow-neon: 0 0 0 1px #39ff8855, 0 0 18px #39ff8822;
+}
+
+@layer base {
+  html,
+  body,
+  #app {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: var(--color-void);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition:
+      background-color 150ms,
+      border-color 150ms,
+      color 150ms,
+      box-shadow 150ms;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-neon);
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    background: var(--color-neon);
+    color: var(--color-void);
+    box-shadow: 0 0 16px #39ff8844;
+  }
+
+  .btn-primary:hover {
+    background: #8affb8;
+  }
+
+  .btn-ghost {
+    border-color: #39ff8855;
+    background: transparent;
+    color: var(--color-ink);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-neon);
+    background: #39ff8814;
+  }
+
+  .panel-card {
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    background: var(--color-panel-raised);
+  }
+
+  .neon-title {
+    color: var(--color-neon);
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 18px #39ff8866;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: #05080acc;
+    backdrop-filter: blur(2px);
+  }
+}
